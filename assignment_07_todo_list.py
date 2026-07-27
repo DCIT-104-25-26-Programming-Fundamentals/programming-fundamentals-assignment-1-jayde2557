@@ -79,3 +79,72 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+
+def add_task(tasks, new_task):
+    tasks.append(new_task)
+
+def view_tasks(tasks):
+    if not tasks:
+        print("Your task list is empty.")
+    else:
+        print("Your Tasks:")
+        for i, t in enumerate(tasks, start=1):
+            print(f"{i}. {t}")
+
+def delete_task(tasks, task_number):
+    if not tasks:
+        print("Your task list is empty.")
+    else:
+        if 1 <= task_number <= len(tasks):
+            removed_task = tasks.pop(task_number - 1)
+            print(f'Task "{removed_task}" has been removed.')
+        else:
+            print("Error: Invalid task number.")
+
+
+def main():
+    task = []
+    
+    while True:   
+        print("""   ============================
+        TO-DO LIST MENU
+    ============================
+        1. Add task
+        2. View tasks
+        3. Delete task
+        4. Quit
+        """)
+        try:
+            choice = int(input("Enter your choice (1-4): "))
+        except ValueError:
+            print("Error: Please enter a valid number between 1 and 4.")
+            continue
+
+        if choice == 1:
+            new_task = input("Enter task: ").strip()
+            if not new_task:
+                print("Error: Task cannot be empty.")
+            else:
+                add_task(task, new_task)
+                print(f'Task added: "{task[-1]}"')
+        elif choice == 2:
+            view_tasks(task)
+        elif choice == 3:
+            view_tasks(task)
+            try:
+                task_number = int(input("Enter task number to delete: "))
+            except ValueError:
+                print("Error: Please enter a valid task number.")
+                continue
+            delete_task(task, task_number)
+        elif choice == 4:
+            print("Goodbye!")
+            break
+        else:
+            print("Error: Invalid choice. Please enter a number between 1 and 4.")
+
+
+if __name__ == "__main__":
+    main()
+
+

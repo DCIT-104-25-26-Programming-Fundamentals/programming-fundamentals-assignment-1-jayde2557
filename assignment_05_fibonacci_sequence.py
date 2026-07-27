@@ -49,3 +49,32 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def fibonacci(n):
+    sequence = []
+    a = 0
+    b = 1
+
+    for i in range(n):
+        sequence.append(a)
+        a,b=b,a+b 
+    return sequence
+
+def is_perfect_square(x):
+    s = int(x**0.5)
+    return s*s == x
+
+def is_fibonacci_math(n):
+    return is_perfect_square(5 * n * n + 4) or is_perfect_square(5 * n * n - 4)
+
+def main():
+    num = int(input("How many terms? "))
+    print(f"Fibonacci sequence: {fibonacci(num)}")
+
+    guess = int(input("Enter a number to check: "))
+    if is_fibonacci_math(guess):
+        print(f"{guess} is a Fibonacci number.")
+    else:
+        print(f"{guess} is NOT a Fibonacci number.")
+
+if __name__ == "__main__":
+    main()

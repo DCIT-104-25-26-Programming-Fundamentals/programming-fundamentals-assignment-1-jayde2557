@@ -45,3 +45,28 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def get_grade (grade):
+    if grade >=80 and grade <= 100:
+        return "Grade A"
+    elif grade >= 70 and grade <= 79:
+        return "Grade B"
+    elif grade >= 60 and grade <= 69:
+        return "Grade C"
+    elif grade >= 50 and grade <= 59:
+        return "Grade D"
+    elif grade < 50:
+        return "Grade F"
+    else:   
+        return None
+
+def main():
+    score = int(input("Enter student score (0-100): "))
+    grade = get_grade(score)
+
+    if grade is not None:
+        print(grade)
+    else:
+        print("Error: Score must be between 0 and 100.")
+
+if __name__ == "__main__":
+    main()

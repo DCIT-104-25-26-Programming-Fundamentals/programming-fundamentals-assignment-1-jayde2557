@@ -39,3 +39,48 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def sum(user_list):
+    sum = 0
+    for i in user_list:
+        sum =+ i
+    return sum
+
+def average(user_list):
+    num = len(user_list)
+    add = sum(user_list)
+    avg = add / num
+    return avg
+
+def minimum(user_list):
+    least = 0
+    for i in user_list:
+        if i < least:
+            least = i
+    return least
+
+def maximum(user_list):
+    large = 0
+    for i in user_list:
+        if i > large:
+            large = i
+    return large
+
+def main():
+    count = int(input("How many numbers? "))
+    numbers = []
+    for i in range(count):
+        num = int(input(f"Enter number {i + 1}: "))
+        numbers.append(num)
+
+    print("---Results---")
+    addition = sum(numbers)
+    print(f"Sum: {addition}")
+    mean = average(numbers)
+    print(f"Average: {mean}")
+    least = minimum(numbers)
+    large = maximum(numbers)
+    print(f"Minimum: {least} \nMaximum: {large}")
+
+
+if __name__ == "__main__":
+    main()

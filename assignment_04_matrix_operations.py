@@ -60,3 +60,11 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def transpose_matrix(matrix):
+    # Implement the logic to transpose the matrix
+    pass
+
+matrix_a = []
+for i in range(2):
+    row = list(map(int, input(f"Enter row {i + 1}: ").split()))
+    matrix_a.append(row)
