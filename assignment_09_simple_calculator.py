@@ -68,3 +68,77 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def addition(a, b):
+    return a + b
+def subtraction(a, b):
+    return a - b
+def multiplication(a, b):
+    return a * b
+def division(a, b):
+    if b == 0:
+        return "Error: Cannot divide by zero."
+    return round(a / b, 2)
+def modulus(a, b):
+    if b == 0:
+        return "Error: Cannot perform modulus by zero."
+    return a % b
+def exponentiation(a, b):
+    return a ** b
+
+def calculator():
+    while True:
+        print("\n============================")
+        print("     SIMPLE CALCULATOR")
+        print("============================")
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        print("5. Modulus")
+        print("6. Exponentiation")
+        print("7. Quit")
+        
+        choice = input("Select an operation (1-7): ")
+        
+        if choice == '7':
+            print("Goodbye!")
+            break
+        
+        if choice not in {'1', '2', '3', '4', '5', '6'}:
+            print("Invalid choice. Please select a number between 1 and 7.")
+            continue
+        
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+            continue
+        
+        if choice == '1':
+            result = addition(num1, num2)
+            print(f"Result: {num1} + {num2} = {result}")
+        elif choice == '2':
+            result = subtraction(num1, num2)
+            print(f"Result: {num1} - {num2} = {result}")
+        elif choice == '3':
+            result = multiplication(num1, num2)
+            print(f"Result: {num1} * {num2} = {result}")
+        elif choice == '4':
+            result = division(num1, num2)
+            if isinstance(result, str):
+                print(result)
+            else:
+                print(f"Result: {num1} / {num2} = {result}")
+        elif choice == '5':
+            result = modulus(num1, num2)
+            if isinstance(result, str): 
+                print(result)
+            else:
+                print(f"Result: {num1} % {num2} = {result}")
+        elif choice == '6':
+            result = exponentiation(num1, num2)
+            print(f"Result: {num1} ** {num2} = {result}")
+
+if __name__ == "__main__":
+    calculator()
